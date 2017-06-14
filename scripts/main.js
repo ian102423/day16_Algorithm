@@ -16,33 +16,21 @@ function handValue(array) {
 
   for (var i = 0; i < array.length; i++) {
     switch (array[i]) {
-      case "1":
-      case "2":
-      case "3":
-      case "4":
-      case "5":
-      case "6":
-      case "7":
-      case "8":
-      case "9":
-      case "10":
-        total += parseInt(array[i]);
-        break;
       case "K":
       case "Q":
       case "J":
         total += 10;
         break;
       case "A":
-        array[i] = 1;
+        total += 1;
         break;
       default:
+        total += parseInt(array[i]);
     }
   }
   if (total < 21) {
     total += 10;
-  }
-  if (total > 21) {
+  } else if (total > 21) {
     total -= 10;
   }
   return total;
